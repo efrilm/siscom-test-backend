@@ -12,13 +12,13 @@
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
-    "typeorm": "typeorm-ts-node-commonjs",
-    "migration:generate": "npm run typeorm -- migration:generate ./src/migrations/Migration -d ./src/data-source.ts",
+    "typeorm": "typeorm-ts-node-commonjs -d src/database/data-source.ts",
+    "migration:generate": "npm run typeorm -- migration:generate --pretty",
     "migration:create": "npm run typeorm -- migration:create ./src/migrations/Migration",
-    "migration:run": "npm run typeorm -- migration:run -d ./src/data-source.ts",
-    "migration:revert": "npm run typeorm -- migration:revert -d ./src/data-source.ts",
-    "schema:drop": "npm run typeorm -- schema:drop -d ./src/data-source.ts",
-    "schema:sync": "npm run typeorm -- schema:sync -d ./src/data-source.ts"
+    "migration:run": "npm run typeorm -- migration:run",
+    "migration:revert": "npm run typeorm -- migration:revert",
+    "schema:drop": "npm run typeorm -- schema:drop",
+    "schema:sync": "npm run typeorm -- schema:sync"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
