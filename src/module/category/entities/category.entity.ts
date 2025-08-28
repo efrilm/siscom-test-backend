@@ -1,7 +1,9 @@
+import { ItemEntity } from '../../item/entities/item.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -13,6 +15,9 @@ export class CategoryEntity {
 
   @Column({ type: 'varchar', length: 255 })
   name: string;
+
+  @OneToMany(() => ItemEntity, (item) => item.category)
+  items: ItemEntity[];
 
   @CreateDateColumn({ type: 'timestamp' })
   createdAt: Date;

@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { getDataSourceConfig } from './config/database.config';
 import { CategoryModule } from './module/category/category.module';
+import { ItemModule } from './module/item/item.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { CategoryModule } from './module/category/category.module';
       inject: [ConfigService],
     }),
     CategoryModule,
+    ItemModule,
   ],
   controllers: [],
   providers: [],
