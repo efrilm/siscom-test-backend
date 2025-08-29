@@ -8,21 +8,16 @@ async function seed() {
     await AppDataSource.initialize();
     console.log('Database connection initialized');
 
-    // Clear existing data
-    // await AppDataSource.manager.clear(ItemEntity);
-    // await AppDataSource.manager.clear(CategoryEntity);
-    // console.log('Existing data cleared');
-
     // Create categories
     const categories = [
-      { name: 'Electronics' },
-      { name: 'Clothing' },
-      { name: 'Books' },
-      { name: 'Home & Garden' },
-      { name: 'Sports' },
-      { name: 'Automotive' },
-      { name: 'Health & Beauty' },
-      { name: 'Toys & Games' },
+      { name: 'Elektronik' },
+      { name: 'Pakaian' },
+      { name: 'Buku & Alat Tulis' },
+      { name: 'Rumah & Dapur' },
+      { name: 'Olahraga' },
+      { name: 'Otomotif' },
+      { name: 'Kesehatan & Kecantikan' },
+      { name: 'Mainan & Hobi' },
     ];
 
     const createdCategories = await AppDataSource.manager.save(
@@ -33,188 +28,146 @@ async function seed() {
 
     // Create items
     const items = [
-      // Electronics
+      // Elektronik
       {
-        item_name: 'Samsung Galaxy S24',
+        item_name: 'Xiaomi Redmi Note 13',
         category_id: createdCategories[0].id,
-        stock: 25,
-        item_group: 'Smartphones',
-        price: 999.99,
+        stock: 50,
+        item_group: 'Smartphone',
+        price: 3500000,
       },
       {
-        item_name: 'iPhone 15 Pro',
-        category_id: createdCategories[0].id,
-        stock: 18,
-        item_group: 'Smartphones',
-        price: 1199.99,
-      },
-      {
-        item_name: 'MacBook Air M2',
-        category_id: createdCategories[0].id,
-        stock: 12,
-        item_group: 'Laptops',
-        price: 1299.99,
-      },
-      {
-        item_name: 'Sony WH-1000XM5',
+        item_name: 'Samsung Galaxy A54',
         category_id: createdCategories[0].id,
         stock: 30,
-        item_group: 'Audio',
-        price: 349.99,
+        item_group: 'Smartphone',
+        price: 5000000,
       },
       {
-        item_name: 'Dell XPS 13',
+        item_name: 'Polytron LED TV 32"',
         category_id: createdCategories[0].id,
-        stock: 8,
-        item_group: 'Laptops',
-        price: 1099.99,
+        stock: 15,
+        item_group: 'Televisi',
+        price: 2200000,
       },
 
-      // Clothing
+      // Pakaian
       {
-        item_name: 'Nike Air Max 270',
-        category_id: createdCategories[1].id,
-        stock: 45,
-        item_group: 'Shoes',
-        price: 149.99,
-      },
-      {
-        item_name: 'Adidas Hoodie',
-        category_id: createdCategories[1].id,
-        stock: 35,
-        item_group: 'Sportswear',
-        price: 79.99,
-      },
-      {
-        item_name: "Levi's 501 Jeans",
-        category_id: createdCategories[1].id,
-        stock: 60,
-        item_group: 'Jeans',
-        price: 89.99,
-      },
-      {
-        item_name: 'Polo Ralph Lauren Shirt',
+        item_name: 'Batik Keris Kemeja',
         category_id: createdCategories[1].id,
         stock: 40,
-        item_group: 'Shirts',
-        price: 95.99,
+        item_group: 'Kemeja',
+        price: 250000,
+      },
+      {
+        item_name: 'Eiger Jaket Gunung',
+        category_id: createdCategories[1].id,
+        stock: 20,
+        item_group: 'Jaket',
+        price: 550000,
+      },
+      {
+        item_name: 'Converse All Star',
+        category_id: createdCategories[1].id,
+        stock: 35,
+        item_group: 'Sepatu',
+        price: 700000,
       },
 
-      // Books
+      // Buku & Alat Tulis
       {
-        item_name: 'Clean Code by Robert Martin',
+        item_name: 'Laskar Pelangi',
         category_id: createdCategories[2].id,
-        stock: 22,
-        item_group: 'Programming',
-        price: 42.99,
+        stock: 50,
+        item_group: 'Buku',
+        price: 120000,
       },
       {
-        item_name: 'The Great Gatsby',
+        item_name: 'Buku Tulis Sinar Dunia (pak 5)',
         category_id: createdCategories[2].id,
-        stock: 15,
-        item_group: 'Fiction',
-        price: 14.99,
-      },
-      {
-        item_name: 'JavaScript: The Definitive Guide',
-        category_id: createdCategories[2].id,
-        stock: 18,
-        item_group: 'Programming',
-        price: 59.99,
+        stock: 100,
+        item_group: 'Alat Tulis',
+        price: 40000,
       },
 
-      // Home & Garden
+      // Rumah & Dapur
       {
-        item_name: 'KitchenAid Stand Mixer',
+        item_name: 'Rice Cooker Miyako 1.8L',
+        category_id: createdCategories[3].id,
+        stock: 25,
+        item_group: 'Peralatan Dapur',
+        price: 300000,
+      },
+      {
+        item_name: 'Dispenser Air Cosmos',
         category_id: createdCategories[3].id,
         stock: 10,
-        item_group: 'Kitchen',
-        price: 379.99,
-      },
-      {
-        item_name: 'Dyson V15 Vacuum',
-        category_id: createdCategories[3].id,
-        stock: 7,
-        item_group: 'Cleaning',
-        price: 649.99,
-      },
-      {
-        item_name: 'Philips Hue Smart Bulbs',
-        category_id: createdCategories[3].id,
-        stock: 50,
-        item_group: 'Lighting',
-        price: 49.99,
+        item_group: 'Peralatan Rumah',
+        price: 550000,
       },
 
-      // Sports
+      // Olahraga
       {
-        item_name: 'Wilson Tennis Racket',
+        item_name: 'Sepeda Polygon Heist',
         category_id: createdCategories[4].id,
-        stock: 15,
-        item_group: 'Tennis',
-        price: 159.99,
+        stock: 12,
+        item_group: 'Sepeda',
+        price: 2200000,
       },
       {
-        item_name: 'Spalding Basketball',
+        item_name: 'Matras Yoga Kettler',
         category_id: createdCategories[4].id,
-        stock: 25,
-        item_group: 'Basketball',
-        price: 29.99,
-      },
-      {
-        item_name: 'Yoga Mat Premium',
-        category_id: createdCategories[4].id,
-        stock: 40,
-        item_group: 'Fitness',
-        price: 39.99,
-      },
-
-      // Automotive
-      {
-        item_name: 'Michelin Tire 225/65R17',
-        category_id: createdCategories[5].id,
-        stock: 20,
-        item_group: 'Tires',
-        price: 189.99,
-      },
-      {
-        item_name: 'Car Phone Mount',
-        category_id: createdCategories[5].id,
-        stock: 35,
-        item_group: 'Accessories',
-        price: 24.99,
-      },
-
-      // Health & Beauty
-      {
-        item_name: 'Olay Regenerist Serum',
-        category_id: createdCategories[6].id,
         stock: 30,
-        item_group: 'Skincare',
-        price: 28.99,
-      },
-      {
-        item_name: 'Oral-B Electric Toothbrush',
-        category_id: createdCategories[6].id,
-        stock: 25,
-        item_group: 'Dental Care',
-        price: 89.99,
+        item_group: 'Fitness',
+        price: 150000,
       },
 
-      // Toys & Games
+      // Otomotif
       {
-        item_name: 'LEGO Creator Set',
-        category_id: createdCategories[7].id,
-        stock: 20,
-        item_group: 'Building Toys',
-        price: 79.99,
+        item_name: 'Oli Federal Matic 1L',
+        category_id: createdCategories[5].id,
+        stock: 60,
+        item_group: 'Oli Motor',
+        price: 35000,
       },
       {
-        item_name: 'Monopoly Board Game',
+        item_name: 'Ban IRC Fasti 90/80-17',
+        category_id: createdCategories[5].id,
+        stock: 25,
+        item_group: 'Ban Motor',
+        price: 275000,
+      },
+
+      // Kesehatan & Kecantikan
+      {
+        item_name: 'Wardah Lightening Face Serum',
+        category_id: createdCategories[6].id,
+        stock: 40,
+        item_group: 'Skincare',
+        price: 95000,
+      },
+      {
+        item_name: 'Vaseline Petroleum Jelly 100ml',
+        category_id: createdCategories[6].id,
+        stock: 50,
+        item_group: 'Perawatan Tubuh',
+        price: 25000,
+      },
+
+      // Mainan & Hobi
+      {
+        item_name: 'Mainan Edukasi Kayu Anak',
         category_id: createdCategories[7].id,
-        stock: 15,
-        item_group: 'Board Games',
-        price: 34.99,
+        stock: 20,
+        item_group: 'Mainan',
+        price: 150000,
+      },
+      {
+        item_name: 'Puzzle 500 pcs',
+        category_id: createdCategories[7].id,
+        stock: 30,
+        item_group: 'Hobi',
+        price: 120000,
       },
     ];
 

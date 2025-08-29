@@ -9,6 +9,7 @@ import {
   ParseUUIDPipe,
   ParseIntPipe,
   Query,
+  Put,
 } from '@nestjs/common';
 import { ItemService } from './item.service';
 import {
@@ -93,7 +94,7 @@ export class ItemController {
     return this.itemService.findOne(id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   @ApiOperation({ summary: 'Ubah barang berdasarkan ID' })
   @ApiParam({ name: 'id', type: String, format: 'uuid' })
   @ApiResponse({
